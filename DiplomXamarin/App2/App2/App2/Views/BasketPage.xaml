@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.Views.BasketPage">
+    <ContentPage.Content>
+        <StackLayout   BackgroundColor="AliceBlue">
+            <ListView x:Name="listBasket" RowHeight="200">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <StackLayout Orientation="Vertical" Padding="8,0,8,0">
+                                    <Label Text="{Binding buildName}" TextColor="Red"/>
+                                    <Label Text="{Binding matheboard.MatheboardName}" TextColor="#000" LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding processor.ProcessorName}" TextColor="#000" LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding ram.RamName}" TextColor="#000" LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding videocard.VideocardName}" TextColor="#000" LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding powerCase.PowerCaseName}" TextColor="#000" LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding case1.CaseName}" TextColor="#000" LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding hdd.HddName}" TextColor="#000" LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding ssd.SsdName}" TextColor="#000" LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding m2.M2Name}" TextColor="#000" LineBreakMode="TailTruncation" />
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </StackLayout>
+       
+       
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.Views.RegistrationPage">
+    <ContentPage.Content>
+        <StackLayout Padding="40" Spacing="20">
+            <Entry Placeholder="Логин" HeightRequest="60" x:Name="loginEntry"/>
+            <Entry Placeholder="Почта" HeightRequest="60" x:Name="mailEntry"/>
+            <Label Text="Дата рождения"/>
+            <DatePicker x:Name="birthDate"/>
+            <Entry Placeholder="Пароль" HeightRequest="60" x:Name="password_1Entry"/>
+            
+            <Button Text="Создать аккаунт" HeightRequest="50" BackgroundColor="Green" TextColor="White" CornerRadius="5" HorizontalOptions="Center" WidthRequest="320" Clicked="CreateAccount" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

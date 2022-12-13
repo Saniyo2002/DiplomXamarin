@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             x:Class="App2.Views.RamsPage">
+    <StackLayout>
+        
+        <StackLayout Orientation="Horizontal">
+            <StackLayout.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="White"
+                          Offset="0.1" />
+                    <GradientStop Color="LightSteelBlue"
+                          Offset="1.0" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <Image Source="ram.png" WidthRequest="50" Margin="10">
+
+            </Image>
+            <Entry x:Name="searchTb" TextChanged="searchTb_TextChanged" WidthRequest="250" Placeholder="Поиск..."/>
+            <ImageButton WidthRequest="35" BackgroundColor="Transparent" x:Name="menubt" Source="menu1.png" HorizontalOptions="End" Clicked="GoToMenu"></ImageButton>
+            <ImageButton WidthRequest="35" BackgroundColor="Transparent" x:Name="disablemenubt" Source="disable.png" HorizontalOptions="End" Clicked="DisableMenu" IsVisible="false"/>
+        </StackLayout>
+        <StackLayout x:Name="menuStackLayout" IsVisible="false">
+          
+            <Picker x:Name="pickerType" Title="Тип памяти" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" ItemDisplayBinding="{Binding RamName}" SelectedIndexChanged="PickerSocketsSelected"/>
+            <Picker x:Name="pickerFactory" Title="Производители" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" ItemDisplayBinding="{Binding FactoryName}" SelectedIndexChanged="PickerFactorysSelected"/>
+            <Picker x:Name="pickerCount" Title="Количество плашек"  SelectedIndexChanged="PickerCountSelected">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>1</x:String>
+                        <x:String>2</x:String>
+                        <x:String>4</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </StackLayout>
+
+        <ListView x:Name="listRams" RowHeight="200" ItemSelected="RamSelected" Background="White">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                          
+                            <Image Source="{Binding RamImage}" WidthRequest="150" />
+                            <StackLayout Orientation="Vertical" Padding="8,0,8,0">
+                                <StackLayout.Background>
+                                    <RadialGradientBrush Center="0.1,0.1" >
+                                        <GradientStop Color="LightSteelBlue" Offset="0.1" />
+                                        <GradientStop Color="White" Offset="1.0"/>
+                                    </RadialGradientBrush>
+                                </StackLayout.Background>
+                                <Label Text="{Binding RamName}" TextColor="#000" LineBreakMode="WordWrap" />
+                               
+                                <Label Text="{Binding RamType.RamName, StringFormat='Тип памяти: {0}'}" TextColor="#000" FontSize="14" LineBreakMode="TailTruncation" />
+                                <Label Text="{Binding RamCountSlots, StringFormat='Количество плашек: {0}'}" TextColor="#000" FontSize="14" LineBreakMode="TailTruncation" />
+                                <Label Text="{Binding RamPrice, StringFormat='Цена: {0}'}" FontSize="18" LineBreakMode="TailTruncation" TextColor="Green" VerticalOptions="EndAndExpand"/>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

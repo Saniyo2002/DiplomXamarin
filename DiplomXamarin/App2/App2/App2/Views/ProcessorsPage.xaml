@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             x:Class="App2.Views.ProcessorsPage">
+    
+        <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="LightSteelBlue"
+                          Offset="0.1" />
+                    <GradientStop Color="White"
+                          Offset="1.0" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <Image Source="processor.png" WidthRequest="50" Margin="10">
+
+            </Image>
+            <Entry x:Name="searchTb" TextChanged="searchTb_TextChanged" WidthRequest="250" Placeholder="Поиск..."/>
+            <ImageButton WidthRequest="35" BackgroundColor="Transparent" x:Name="menubt" Source="menu1.png" HorizontalOptions="End" Clicked="GoToMenu"></ImageButton>
+            <ImageButton WidthRequest="35" BackgroundColor="Transparent" x:Name="disablemenubt" Source="disable.png" HorizontalOptions="End" Clicked="DisableMenu" IsVisible="false"/>
+        </StackLayout>
+        <StackLayout x:Name="menuStackLayout" IsVisible="false">
+          
+            <Picker x:Name="pickerFactory" Title="Производители" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" ItemDisplayBinding="{Binding FactoryName}" SelectedIndexChanged="PickerFactorysSelected"/>
+            <Picker x:Name="pickerSockets" Title="Сокет" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" ItemDisplayBinding="{Binding SocketName}" SelectedIndexChanged="PickerSocketsSelected"/>
+        </StackLayout>
+        <ListView x:Name="listProcessors" RowHeight="200" ItemSelected="ProcessorSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10" x:Name="stacklayoutProc">
+                            <Image Source="{Binding ProcessorImage}" WidthRequest="150" />
+                                <StackLayout Orientation="Vertical" Padding="8,0,8,0">
+                                <StackLayout.Background>
+                                    <RadialGradientBrush Center="0.1,0.1" >
+                                        <GradientStop Color="LightSteelBlue" Offset="0.1" />
+                                        <GradientStop Color="White" Offset="1.0"/>
+                                    </RadialGradientBrush>
+                                </StackLayout.Background>
+                                <Label Text="{Binding ProcessorName}" TextColor="#000" LineBreakMode="WordWrap"/>
+                                <Label Text="{Binding ProcessorSocket.SocketName,  StringFormat='Сокет: {0}'}"/>
+                                <Label Text="{Binding ProcessorPrice, StringFormat='Цена: {0}'}" FontSize="18" LineBreakMode="WordWrap" TextColor="Green" VerticalOptions="EndAndExpand" />
+                                
+                            </StackLayout>
+
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+  
+</ContentPage>

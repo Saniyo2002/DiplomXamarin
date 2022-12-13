@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+              android:TabbedPage.ToolbarPlacement="Bottom"
+            
+             x:Class="App2.MainComponentsPage">
+    
+  <!--Pages can be added as references or inline-->
+    
+    <ContentPage Title="Комплектующие" IconImageSource="components.png">
+
+        
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+                
+            <Image Source="matheboard.png" WidthRequest="60" x:Name="matheboardImage" Grid.Column="0" Margin="0,10,0,0"/>
+            <Label Text="Материнские платы" WidthRequest="150" x:Name="matheboardLabel" Grid.Column="1" VerticalOptions="Center"/>
+            <Button Text="+" Clicked="GoToMainPatge" WidthRequest="50"  Grid.Column="3" TextColor="White" BackgroundColor="DeepSkyBlue" CornerRadius="100" Margin="10"/>
+            <Image Source="processor.png" WidthRequest="60" HeightRequest="60" x:Name="processorImage" Grid.Row="1"/>
+            <Label Text="Процессоры" WidthRequest="150" x:Name="labelProcessor" Grid.Column="1" Grid.Row="1"  VerticalOptions="Center"/>
+            <Button Text="+" Clicked="GoToProcessors" WidthRequest="50"  Grid.Column="3" TextColor="White" BackgroundColor="DeepSkyBlue" CornerRadius="100" Margin="10" Grid.Row="1"/>
+            <Image Source="ram.png" WidthRequest="50" x:Name="ramImage" Grid.Row="2"/>
+            <Label Text="Оперативная память" WidthRequest="150" x:Name="labelRam" Grid.Column="1" Grid.Row="2"  VerticalOptions="Center"/>
+            <Button Text="+" Clicked="GoToRamsPage" WidthRequest="50"  Grid.Column="3" TextColor="White" BackgroundColor="DeepSkyBlue" CornerRadius="100" Margin="10" Grid.Row="2"/>
+            <Image Source="videocard.png" WidthRequest="50" x:Name="videocardImage" Grid.Row="3"/>
+            <Label Text="Видеокарты" WidthRequest="150" x:Name="labelVideocard" Grid.Column="1" Grid.Row="3"  VerticalOptions="Center"/>
+            <Button Text="+" Clicked="GoToVideocards" WidthRequest="50"  Grid.Column="3" TextColor="White" BackgroundColor="DeepSkyBlue" CornerRadius="100" Margin="10" Grid.Row="3"/>
+            <Image Source="powercase.png" WidthRequest="50" x:Name="powerCaseImage" Grid.Row="4"/>
+            <Label Text="Блоки питания" WidthRequest="150" x:Name="labelPowerCase" Grid.Column="1" Grid.Row="4"  VerticalOptions="Center"/>
+            <Button Text="+" Clicked="GoToPowerCases" WidthRequest="50"  Grid.Column="3" TextColor="White" BackgroundColor="DeepSkyBlue" CornerRadius="100" Margin="10" Grid.Row="4"/>
+            <Image Source="case1.png" WidthRequest="50" x:Name="caseImage" Grid.Row="5"/>
+            <Label Text="Корпуса" WidthRequest="150" x:Name="labelCase" Grid.Column="1" Grid.Row="5"  VerticalOptions="Center"/>
+            <Button Text="+" Clicked="GoToCases" WidthRequest="50"  Grid.Column="3" TextColor="White" BackgroundColor="DeepSkyBlue" CornerRadius="100" Margin="10" Grid.Row="5"/>
+            <Image Source="hdd.png" WidthRequest="50" x:Name="hddImage" Grid.Row="6"/>
+            <Label Text="Жесткие диски (HDD)" WidthRequest="150" x:Name="labelHdd" Grid.Column="1" Grid.Row="6"  VerticalOptions="Center"/>
+            <Button Text="+" Clicked="GoToHdd" WidthRequest="50"  Grid.Column="3" TextColor="White" BackgroundColor="DeepSkyBlue" CornerRadius="100" Margin="10" Grid.Row="6"/>
+            <Image Source="ssd.png" WidthRequest="50" x:Name="ssdImage" Grid.Row="7"/>
+            <Label Text="Твердотельные накопители (SSD)" WidthRequest="150" x:Name="labelSsd" Grid.Column="1" Grid.Row="7"  VerticalOptions="Center"/>
+            <Button Text="+" Clicked="GoToSsd" WidthRequest="50"  Grid.Column="3" TextColor="White" BackgroundColor="DeepSkyBlue" CornerRadius="100" Margin="10" Grid.Row="7"/>
+            <Image Source="ssdm2.png" WidthRequest="50" x:Name="ssdm2Image" Grid.Row="8"/>
+            <Label Text="Твердотельные накопители (M.2)" WidthRequest="150" x:Name="labelSsdM2" Grid.Column="1" Grid.Row="8"  VerticalOptions="Center"/>
+            <Button Text="+" Clicked="GoToM2" WidthRequest="50"  Grid.Column="3" TextColor="White" BackgroundColor="DeepSkyBlue" CornerRadius="100" Margin="10" Grid.Row="8"/>
+            <Button Text="Сохранить сборку" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="20" BackgroundColor="DeepSkyBlue" Clicked="GoToBasketPage" Grid.Row="9" Grid.ColumnSpan="4" x:Name="saveButton" />
+
+            <Button Text="Изменить сборку" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="20" BackgroundColor="DeepSkyBlue" Clicked="DeleteAndAddBuild" Grid.Row="9" Grid.ColumnSpan="4" x:Name="editButton" IsVisible="false" />
+        </Grid>
+      
+                
+   </ContentPage>
+
+    
+    <ContentPage Title="Сохраненные сборки" IconImageSource="saveBuild.png">
+        
+        <StackLayout   BackgroundColor="AliceBlue" Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ImageButton Source="public1.png" Clicked="PublicBuild" BackgroundColor="Transparent" WidthRequest="50"/>
+                    <ImageButton Source="import1.png" Clicked="ImportBuild" BackgroundColor="Transparent" WidthRequest="50" Grid.Column="1"/>
+                <ImageButton Source="edit.png" Clicked="EditBuild" BackgroundColor="Transparent" WidthRequest="50" Grid.Column="2"/>
+
+
+            </Grid>
+            <Label Text="Для сохранения сборки войдите в аккаунт!" IsVisible="false" x:Name="basketGuest" TextColor="Red" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Button Text="Войти" Clicked="GoToLogin" IsVisible="false" x:Name="button2"/>
+
+            <ListView x:Name="listBasket" HasUnevenRows="True" ItemSelected="BuildSelected" Grid.ColumnSpan="3">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10" ChildAdded="BasketChildAdded" BindingContext="{Binding .}">
+                                <StackLayout Orientation="Vertical" Margin="10">
+                                    <Label Text="{Binding buildName}" TextColor="Red" LineBreakMode="WordWrap"/>
+                                    <Label Text="{Binding matheboard.MatheboardName}" TextColor="#000" LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding processor.ProcessorName}" TextColor="#000" LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding ram.RamName}" TextColor="#000" LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding videocard.VideocardName}" TextColor="#000" LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding powerCase.PowerCaseName}" TextColor="#000" LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding case1.CaseName}" TextColor="#000" LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding hdd.HddName}" TextColor="#000" LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding ssd.SsdName}" TextColor="#000" LineBreakMode="WordWrap" />
+                                    <Label Text="{Binding m2.M2Name}" TextColor="#000" LineBreakMode="WordWrap" />
+                                    <ImageButton Source="remove.png" BackgroundColor="Transparent" WidthRequest="50" Clicked="RemoveBuild" BindingContext="{Binding .}"/>
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </StackLayout>
+
+    </ContentPage>
+    <ContentPage Title="Профиль" IconImageSource="profile1.png">
+       
+          
+           
+            <StackLayout Padding="40" Spacing="20">
+                <Label Text="" Margin="10" x:Name="accountUserLabel" FontSize="18" TextColor="Black"/>
+            <Button Text="Войти" Clicked="GoToLogin" x:Name="buttonLogin1" IsVisible="false" />
+            <Button Text="Выйти" HeightRequest="50" BackgroundColor="Red" TextColor="Black" CornerRadius="5" Clicked="GoOut" x:Name="OutButton"/>
+            </StackLayout>
+               
+                
+
+           
+
+    </ContentPage>
+    
+</TabbedPage>
